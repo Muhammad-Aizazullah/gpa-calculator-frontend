@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiUrl = "http://127.0.0.1:5000";
+    // API URL ko apne PythonAnywhere backend ke URL se replace kiya gaya hai
+    const apiUrl = "https://Aizazullah.pythonanywhere.com"; // **APNA PYTHONANYWHERE USERNAME YAHAN DALEIN**
+
     const gpaForm = document.getElementById('gpaForm');
     const addCourseBtn = document.getElementById('addCourseBtn');
     const resetBtn = document.getElementById('resetBtn');
