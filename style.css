@@ -20,7 +20,7 @@
     
     /* Footer-specific remaps from old structure to new variables */
     --footer-bottom-bg: var(--accent-color); /* Footer bottom background */
-    --footer-text-on-dark: var(--primary-color); /* Text color for elements on dark footer background */
+    /* --footer-text-on-dark: var(--primary-color); */ /* Removed as background is no longer dark */
 }
 
 * {
@@ -393,8 +393,8 @@ button:hover {
 
 /* Footer */
 .main-footer {
-    background-color: var(--dark-text); /* Footer background changed to dark-text (black) */
-    color: var(--footer-text-on-dark); /* Default text color in footer via remap (primary-color) */
+    background-color: var(--card-section-background); /* Changed footer background to light beige (primary color) */
+    color: var(--dark-text); /* Default text color in footer (black) */
     padding-top: 40px;
     width: 100%; /* Make sure footer spans full width */
 }
@@ -414,19 +414,19 @@ button:hover {
 .footer-column h4 {
     font-size: 1.25rem;
     margin-bottom: 20px;
-    color: var(--accent-highlight); /* Footer column titles via remap */
+    color: var(--accent-highlight); /* Footer column titles via remap (burnt orange) */
 }
 
 .footer-column p {
     font-size: 0.95rem;
     margin-bottom: 10px;
-    color: var(--footer-text-on-dark); /* Footer paragraph text via remap */
+    color: var(--dark-text); /* Footer paragraph text (black) */
 }
 
 .footer-logo {
     font-size: 1.6rem;
     font-weight: 700;
-    color: var(--accent-highlight); /* Footer logo color via remap */
+    color: var(--accent-highlight); /* Footer logo color via remap (burnt orange) */
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -447,18 +447,18 @@ button:hover {
 }
 
 .footer-column ul li a {
-    color: var(--footer-text-on-dark); /* Footer link color via remap */
+    color: var(--dark-text); /* Footer link color (black) */
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: var(--primary-button); /* Footer link hover color via remap */
+    color: var(--primary-button); /* Footer link hover color (accent-color) */
 }
 
 .contact-info a {
-    color: var(--footer-text-on-dark); /* Contact info link color via remap */
+    color: var(--dark-text); /* Contact info link color (black) */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -472,13 +472,13 @@ button:hover {
 }
 
 .contact-info a i {
-    color: var(--footer-text-on-dark); /* Contact info icon color via remap */
+    color: var(--dark-text); /* Contact info icon color (black) */
 }
 
 .language-selector select {
-    background-color: var(--primary-background); /* Language selector background via remap */
+    background-color: var(--primary-background); /* Language selector background (light-bg) */
     color: var(--dark-text); /* Language selector text color (black) */
-    border: 1px solid var(--border-color); /* Language selector border via remap */
+    border: 1px solid var(--border-color); /* Language selector border (secondary-color) */
     padding: 8px 12px;
     border-radius: 5px;
     font-size: 0.95rem;
@@ -486,7 +486,7 @@ button:hover {
 }
 
 .footer-bottom {
-    background-color: var(--footer-bottom-bg); /* Footer bottom background via remap (accent-color) */
+    background-color: var(--footer-bottom-bg); /* Footer bottom background (accent-color) */
     padding: 20px;
     text-align: center;
     color: #fff; /* Footer bottom text color (white) for accent background */
@@ -517,7 +517,7 @@ button:hover {
 }
 
 .social-icons a:hover {
-    color: var(--primary-color); /* Social icons hover color changed to primary-color for contrast */
+    color: var(--primary-color); /* Social icons hover color (primary-color) */
 }
 
 /* Responsive Adjustments */
