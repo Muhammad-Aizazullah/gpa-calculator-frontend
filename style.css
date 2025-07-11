@@ -313,43 +313,43 @@ button:hover {
 }
 
 /* Info Section */
-    .info-container1, .info-container2 { /* Combined styles for both info containers */
-        width: 100%;
-        max-width: 800px;
-        margin: 40px 20px;
-        padding: 20px;
-        background-color: var(--primary-color); /* Changed background */
-        border-radius: 16px;
-        border: 1px solid var(--secondary-color); /* Border color changed */
-        color: var(--dark-text); /* Ensure text is dark */
-    }
+.info-container1, .info-container2 { /* Combined styles for both info containers */
+    width: 100%;
+    max-width: 800px;
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: var(--primary-color); /* Changed background */
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color); /* Border color changed */
+    color: var(--dark-text); /* Ensure text is dark */
+}
 
-    .info-card {
-        margin-bottom: 25px;
-    }
+.info-card {
+    margin-bottom: 25px;
+}
 
-    .info-card h1, .info-card h2, .info-card h3 { /* Added H1/H2 for consistency */
-        border-bottom: 2px solid var(--secondary-color); /* Border color changed */
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-        color: var(--dark-text); /* Changed to new dark text */
-    }
+.info-card h1, .info-card h2, .info-card h3 { /* Added H1/H2 for consistency */
+    border-bottom: 2px solid var(--secondary-color); /* Border color changed */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--dark-text); /* Changed to new dark text */
+}
 
-    .info-card h4 {
-        color: var(--dark-text); /* Changed to new dark text */
-        margin-top: 15px;
-        margin-bottom: 5px;
-    }
+.info-card h4 {
+    color: var(--dark-text); /* Changed to new dark text */
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
 
-    .info-card p, .info-card li {
-        line-height: 1.7;
-        color: var(--dark-text); /* Changed to new dark text for better contrast */
-    }
+.info-card p, .info-card li {
+    line-height: 1.7;
+    color: var(--dark-text); /* Changed to new dark text for better contrast */
+}
 
-    .info-card ul {
-        list-style-position: inside;
-        padding-left: 10px;
-    }
+.info-card ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
 
 
 /* Footer Styles */
