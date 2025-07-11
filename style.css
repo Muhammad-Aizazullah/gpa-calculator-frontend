@@ -10,17 +10,17 @@
 
     /* Remapping existing structure to match your new variables for consistency */
     --primary-background: var(--light-bg); /* Body background, section background */
-    --card-section-background: var(--primary-color); /* Container, features section background */
-    --text-medium: var(--primary-color); /* General text for footer columns */
+    --card-section-background: var(--primary-color); /* Container, features section, footer background */
+    --text-medium: var(--dark-text); /* General text (adjust if a lighter dark is needed) */
     --text-light: #777777; /* Subtle text for labels/small info */
     --border-color: var(--secondary-color); /* General borders */
     --error-color: #e57373; /* Error messages */
     --primary-button: var(--accent-color); /* Main buttons */
-    --accent-highlight: var(--accent-color); /* Headings, important highlights, like footer titles and logo */
+    --accent-highlight: var(--accent-color); /* Headings, important highlights */
     
-    /* Footer-specific remaps */
+    /* Footer-specific remaps from old structure to new variables */
     --footer-bottom-bg: var(--accent-color); /* Footer bottom background */
-    --footer-text-on-dark: var(--primary-color); /* Text color for dark footer sections */
+    --footer-text-on-dark: var(--primary-color); /* Text color for elements on dark footer background */
 }
 
 * {
@@ -517,7 +517,7 @@ button:hover {
 }
 
 .social-icons a:hover {
-    color: var(--secondary-color); /* Social icons hover color changed to secondary for contrast */
+    color: var(--primary-color); /* Social icons hover color changed to primary-color for contrast */
 }
 
 /* Responsive Adjustments */
