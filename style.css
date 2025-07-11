@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* Color Variables (Aapke original colors) */
 :root {
     --light-bg: #F2F2F2; /* New: Light background */
-    --primary-color: #EAE4D5; /* New: Primary color for main elements */
-    --secondary-color: #B6B09F; /* New: Secondary color, subtle accent */
-    --dark-text: #000000; /* New: Dark text color */
-    --accent-color: #C83F12; /* Kept existing accent for buttons/highlights, adjust if needed */
+    --primary-color: #EAE4D5; /* New: Primary color for main elements (light beige) */
+    --secondary-color: #B6B09F; /* New: Secondary color, subtle accent (taupe/grey-beige) */
+    --dark-text: #000000; /* New: Dark text color (Black) */
+    --accent-color: #C83F12; /* Kept existing accent for buttons/highlights (burnt orange) */
+
+    /* Remapping existing structure to match your new variables for consistency */
+    --primary-background: var(--light-bg); /* Body background, section background */
+    --card-section-background: var(--primary-color); /* Container, features section background */
+    --text-medium: var(--primary-color); /* General text for footer columns */
+    --text-light: #777777; /* Subtle text for labels/small info */
+    --border-color: var(--secondary-color); /* General borders */
+    --error-color: #e57373; /* Error messages */
+    --primary-button: var(--accent-color); /* Main buttons */
+    --accent-highlight: var(--accent-color); /* Headings, important highlights, like footer titles and logo */
+    
+    /* Footer-specific remaps */
+    --footer-bottom-bg: var(--accent-color); /* Footer bottom background */
+    --footer-text-on-dark: var(--primary-color); /* Text color for dark footer sections */
 }
 
 * {
@@ -16,7 +31,7 @@
 }
 
 body {
-    background-color: var(--light-bg); /* Changed to new light background */
+    background-color: var(--primary-background); /* Changed to new light background */
     color: var(--dark-text); /* Changed to new dark text */
     display: flex;
     flex-direction: column;
@@ -64,13 +79,12 @@ body {
     color: var(--secondary-color); /* Hover color changed */
 }
 
-
-/* Main Container */
+/* --- Main Container --- */
 .container {
-    background-color: var(--primary-color); /* Changed to primary color */
+    background-color: var(--card-section-background); /* Changed to primary-color via remap */
     padding: 30px 25px;
     border-radius: 16px;
-    border: 1px solid var(--secondary-color); /* Border color changed */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     width: 100%;
     max-width: 600px;
     margin: 40px 20px;
@@ -80,7 +94,7 @@ body {
 h2, h3 {
     color: var(--dark-text); /* Changed to new dark text */
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--secondary-color); /* Border color changed */
+    border-bottom: 1px solid var(--border-color); /* Border color changed via remap */
     padding-bottom: 10px;
     font-weight: 400;
 }
@@ -100,9 +114,9 @@ h2, h3 {
 input, select, button {
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid var(--secondary-color); /* Border color changed */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     font-size: 1rem;
-    background-color: var(--light-bg); /* Changed input background */
+    background-color: var(--primary-background); /* Changed input background via remap */
     color: var(--dark-text); /* Changed input text color */
     transition: all 0.3s ease;
     width: 100%;
@@ -116,9 +130,9 @@ input:focus, select:focus {
 button {
     cursor: pointer;
     font-weight: bold;
-    background-color: var(--accent-color); /* Accent color for primary button */
+    background-color: var(--primary-button); /* Accent color for primary button via remap */
     color: #fff; /* White text for accent button */
-    border-color: var(--accent-color);
+    border-color: var(--primary-button);
 }
 
 button:hover {
@@ -128,11 +142,12 @@ button:hover {
 #resetBtn {
     background-color: var(--secondary-color); /* Changed reset button color */
     color: var(--dark-text); /* Changed reset button text color */
+    border-color: var(--secondary-color); /* Added border-color for consistency */
 }
 
 #courseList {
     list-style: none;
-    background: var(--light-bg); /* Changed course list background */
+    background: var(--primary-background); /* Changed course list background via remap */
     padding: 10px;
     border-radius: 8px;
     max-height: 180px;
@@ -142,7 +157,33 @@ button:hover {
 
 #courseList li {
     padding: 8px 5px;
-    border-bottom: 1px solid var(--secondary-color); /* Border color changed */
+    border-bottom: 1px solid var(--border-color); /* Border color changed via remap */
+    display: flex; /* Flexbox for list items */
+    justify-content: space-between; /* Space between text and buttons */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#courseList li button {
+    margin-left: 10px; /* Space between buttons and text/other button */
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: var(--accent-color); /* Default button color */
+    color: #fff;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    width: auto; /* Override 100% width */
+}
+
+#courseList li button.delete-btn {
+    background-color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+#courseList li button:hover {
+    filter: brightness(1.1);
 }
 
 #gpaDisplay {
@@ -164,8 +205,8 @@ button:hover {
 .gpa-options {
     margin-top: 20px;
     padding: 20px;
-    background: var(--primary-color); /* Changed options background */
-    border: 1px solid var(--secondary-color); /* Border color changed */
+    background: var(--card-section-background); /* Changed options background via remap */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     border-radius: 8px;
     color: var(--dark-text); /* Ensure text within options is dark */
 }
@@ -181,7 +222,7 @@ button:hover {
 .result-display {
     margin-top: 15px;
     padding: 12px;
-    background-color: var(--light-bg); /* Changed result background */
+    background-color: var(--primary-background); /* Changed result background via remap */
     border-radius: 8px;
     color: var(--accent-color); /* Accent color for result text */
     text-align: center;
@@ -205,7 +246,7 @@ button:hover {
 }
 
 .notification.error {
-    background-color: #e57373; /* Kept error color as it works well */
+    background-color: var(--error-color); /* Error color via remap */
     color: #fff;
 }
 
@@ -218,12 +259,11 @@ button:hover {
     margin-bottom: 40px;
 }
 
-
 /* --- How It Works Section --- */
 .how-it-works-section {
     width: 100%;
     padding: 50px 30px;
-    background-color: var(--light-bg); /* Section background changed */
+    background-color: var(--primary-background); /* Section background changed via remap */
 }
 
 .steps-container {
@@ -267,7 +307,7 @@ button:hover {
 .features-section {
     width: 100%;
     padding: 50px 30px;
-    background-color: var(--primary-color); /* Section background changed */
+    background-color: var(--card-section-background); /* Section background changed via remap */
 }
 
 .features-grid {
@@ -279,11 +319,11 @@ button:hover {
 }
 
 .feature-card {
-    background: var(--light-bg); /* Changed card background */
+    background: var(--primary-background); /* Changed card background via remap */
     padding: 30px;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid var(--secondary-color); /* Border color changed */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     transition: transform 0.3s, box-shadow 0.3s;
     color: var(--dark-text); /* Ensure card text is dark */
 }
@@ -318,9 +358,9 @@ button:hover {
     max-width: 800px;
     margin: 40px 20px;
     padding: 20px;
-    background-color: var(--primary-color); /* Changed background */
+    background-color: var(--card-section-background); /* Changed background via remap */
     border-radius: 16px;
-    border: 1px solid var(--secondary-color); /* Border color changed */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     color: var(--dark-text); /* Ensure text is dark */
 }
 
@@ -329,7 +369,7 @@ button:hover {
 }
 
 .info-card h1, .info-card h2, .info-card h3 { /* Added H1/H2 for consistency */
-    border-bottom: 2px solid var(--secondary-color); /* Border color changed */
+    border-bottom: 2px solid var(--border-color); /* Border color changed via remap */
     padding-bottom: 10px;
     margin-bottom: 15px;
     color: var(--dark-text); /* Changed to new dark text */
@@ -351,19 +391,161 @@ button:hover {
     padding-left: 10px;
 }
 
-
-/* Footer Styles */
+/* Footer */
 .main-footer {
-    width: 100%;
-    background-color: var(--dark-text); /* Changed footer background to black */
-    color: var(--primary-color); /* Changed footer text to primary color */
-    padding: 40px 5%;
-    margin-top: auto;
+    background-color: var(--dark-text); /* Footer background changed to dark-text (black) */
+    color: var(--footer-text-on-dark); /* Default text color in footer via remap (primary-color) */
+    padding-top: 40px;
+    width: 100%; /* Make sure footer spans full width */
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--secondary-color); /* Footer separator via secondary color */
+    max-width: 1200px; /* Max width for content alignment */
+    margin: 0 auto; /* Center the footer content */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer-column h4 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--accent-highlight); /* Footer column titles via remap */
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--footer-text-on-dark); /* Footer paragraph text via remap */
+}
+
+.footer-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-highlight); /* Footer logo color via remap */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo .logo-icon {
+    height: 35px; /* Adjust if you have a logo image */
+    margin-right: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: var(--footer-text-on-dark); /* Footer link color via remap */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-button); /* Footer link hover color via remap */
+}
+
+.contact-info a {
+    color: var(--footer-text-on-dark); /* Contact info link color via remap */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--primary-button);
+}
+
+.contact-info a i {
+    color: var(--footer-text-on-dark); /* Contact info icon color via remap */
+}
+
+.language-selector select {
+    background-color: var(--primary-background); /* Language selector background via remap */
+    color: var(--dark-text); /* Language selector text color (black) */
+    border: 1px solid var(--border-color); /* Language selector border via remap */
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
 .footer-bottom {
+    background-color: var(--footer-bottom-bg); /* Footer bottom background via remap (accent-color) */
+    padding: 20px;
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--secondary-color);
-    color: var(--primary-color);
+    color: #fff; /* Footer bottom text color (white) for accent background */
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px; /* Match footer-container max-width */
+    margin: 0 auto; /* Center content */
+    padding: 0 20px; /* Padding for small screens */
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: #fff; /* Social icons color (white on accent-highlight bg) */
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color); /* Social icons hover color changed to secondary for contrast */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-header nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        text-align: center;
+    }
+    .footer-column {
+        margin-bottom: 20px;
+    }
+    .footer-column ul {
+        padding-left: 0;
+    }
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .social-icons {
+        margin-top: 10px;
+    }
 }
