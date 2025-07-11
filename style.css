@@ -2,11 +2,12 @@
 
 /* Color Variables (Aapke original colors) */
 :root {
-    --light-bg: #F2F2F2; /* New: Light background */
-    --primary-color: #EAE4D5; /* New: Primary color for main elements (light beige) */
-    --secondary-color: #B6B09F; /* New: Secondary color, subtle accent (taupe/grey-beige) */
-    --dark-text: #000000; /* New: Dark text color (Black) */
-    --accent-color: #C83F12; /* Kept existing accent for buttons/highlights (burnt orange) */
+    --light-bg: #F2F2F2;
+    --primary-color: #EAE4D5;
+    --secondary-color: #B6B09F;
+    --dark-text: #000000;
+    --accent-color: #C83F12;
+}
 
     /* Remapping existing structure to match your new variables for consistency */
     --primary-background: var(--light-bg); /* Body background, section background */
