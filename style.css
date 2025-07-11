@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* Color Variables (Aapke original colors) */
 :root {
-    --light-bg: #F2F2F2;
-    --primary-color: #EAE4D5;
-    --secondary-color: #B6B09F;
-    --dark-text: #000000;
-    --accent-color: #C83F12;
+    --light-bg: #F2F2F2; /* New: Light background */
+    --primary-color: #EAE4D5; /* New: Primary color for main elements (light beige) */
+    --secondary-color: #B6B09F; /* New: Secondary color, subtle accent (taupe/grey-beige) */
+    --dark-text: #000000; /* New: Dark text color (Black) */
+    --accent-color: #C83F12; /* Kept existing accent for buttons/highlights (burnt orange) */
+
+    /* Remapping existing structure to match your new variables for consistency */
+    --primary-background: var(--light-bg); /* Body background, section background */
+    --card-section-background: var(--primary-color); /* Container, features section, footer background */
+    --text-medium: var(--dark-text); /* General text (adjust if a lighter dark is needed) */
+    --text-light: #777777; /* Subtle text for labels/small info */
+    --border-color: var(--secondary-color); /* General borders */
+    --error-color: #e57373; /* Error messages */
+    --primary-button: var(--accent-color); /* Main buttons */
+    --accent-highlight: var(--accent-color); /* Headings, important highlights */
+    
+    /* Footer-specific remaps from old structure to new variables */
+    --footer-bottom-bg: var(--accent-color); /* Footer bottom background */
+    /* --footer-text-on-dark: var(--primary-color); */ /* Removed as background is no longer dark */
 }
 
 * {
@@ -16,18 +31,18 @@
 }
 
 body {
-    background-color: var(--light-bg);
-    color: var(--dark-text);
+    background-color: var(--primary-background); /* Changed to new light background */
+    color: var(--dark-text); /* Changed to new dark text */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Header */
+/* Header Styles */
 .main-header {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Darker header with transparency */
     backdrop-filter: blur(10px);
     padding: 15px 5%;
     position: sticky;
@@ -44,7 +59,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Logo text color */
 }
 
 .nav-links {
@@ -54,57 +69,70 @@ body {
 }
 
 .nav-links a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Nav links color */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Hover color changed */
 }
 
-/* Main Container */
+/* --- Main Container --- */
 .container {
-    background-color: var(--primary-color);
+    background-color: var(--card-section-background); /* Changed to primary-color via remap */
     padding: 30px 25px;
     border-radius: 16px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     width: 100%;
     max-width: 600px;
     margin: 40px 20px;
+    color: var(--dark-text); /* Ensure text within container is dark */
 }
 
 h2, h3 {
-    color: var(--dark-text);
+    color: var(--dark-text); /* Changed to new dark text */
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--border-color); /* Border color changed via remap */
     padding-bottom: 10px;
     font-weight: 400;
+}
+
+#gpaForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
 input, select, button {
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--border-color); /* Border color changed via remap */
     font-size: 1rem;
-    background-color: var(--light-bg);
-    color: var(--dark-text);
+    background-color: var(--primary-background); /* Changed input background via remap */
+    color: var(--dark-text); /* Changed input text color */
     transition: all 0.3s ease;
     width: 100%;
 }
 
 input:focus, select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(182, 176, 159, 0.5);
+    box-shadow: 0 0 0 3px rgba(182, 176, 159, 0.5); /* Shadow color changed */
 }
 
 button {
     cursor: pointer;
     font-weight: bold;
-    background-color: var(--accent-color);
-    color: #fff;
-    border-color: var(--accent-color);
+    background-color: var(--primary-button); /* Accent color for primary button via remap */
+    color: #fff; /* White text for accent button */
+    border-color: var(--primary-button);
 }
 
 button:hover {
@@ -112,139 +140,97 @@ button:hover {
 }
 
 #resetBtn {
-    background-color: var(--secondary-color);
-    color: var(--dark-text);
+    background-color: var(--secondary-color); /* Changed reset button color */
+    color: var(--dark-text); /* Changed reset button text color */
+    border-color: var(--secondary-color); /* Added border-color for consistency */
 }
 
-/* Lists & Forms */
 #courseList {
     list-style: none;
-    background: var(--light-bg);
+    background: var(--primary-background); /* Changed course list background via remap */
     padding: 10px;
     border-radius: 8px;
     max-height: 180px;
     overflow-y: auto;
-    color: var(--dark-text);
+    color: var(--dark-text); /* Ensure text within list is dark */
 }
 
 #courseList li {
     padding: 8px 5px;
-    border-bottom: 1px solid var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color); /* Border color changed via remap */
+    display: flex; /* Flexbox for list items */
+    justify-content: space-between; /* Space between text and buttons */
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 #courseList li button {
-    margin-left: 10px;
+    margin-left: 10px; /* Space between buttons and text/other button */
     padding: 5px 10px;
     font-size: 0.8rem;
-    background-color: var(--accent-color);
+    cursor: pointer;
+    background-color: var(--accent-color); /* Default button color */
     color: #fff;
     border: 1px solid var(--accent-color);
     border-radius: 5px;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    width: auto; /* Override 100% width */
 }
 
 #courseList li button.delete-btn {
-    background-color: #e57373;
-    border-color: #e57373;
+    background-color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+#courseList li button:hover {
+    filter: brightness(1.1);
 }
 
 #gpaDisplay {
     text-align: center;
     font-size: 2rem;
-    color: var(--dark-text);
+    color: var(--dark-text); /* Changed to new dark text */
     margin-top: 20px;
     font-weight: 600;
     border-bottom: none;
 }
 
-/* Section Headings */
-.section-heading {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: var(--dark-text);
-    margin-bottom: 40px;
-}
-
-/* Sections */
-.how-it-works-section,
-.features-section {
-    width: 100%;
-    padding: 50px 30px;
-}
-
-.how-it-works-section {
-    background-color: var(--light-bg);
-}
-
-.features-section {
-    background-color: var(--primary-color);
-}
-
-.steps-container,
-.features-grid {
+.buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 25px 0;
 }
 
-.step,
-.feature-card {
-    text-align: center;
-    color: var(--dark-text);
-    background: var(--light-bg);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid var(--secondary-color);
-}
-
-.step-number {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 0 auto 20px;
-}
-
-/* Info Containers */
-.info-container1, .info-container2 {
-    width: 100%;
-    max-width: 800px;
-    margin: 40px 20px;
+.gpa-options {
+    margin-top: 20px;
     padding: 20px;
-    background-color: var(--primary-color);
-    border-radius: 16px;
-    border: 1px solid var(--secondary-color);
+    background: var(--card-section-background); /* Changed options background via remap */
+    border: 1px solid var(--border-color); /* Border color changed via remap */
+    border-radius: 8px;
+    color: var(--dark-text); /* Ensure text within options is dark */
 }
 
-.info-card h1, .info-card h2, .info-card h3 {
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    color: var(--dark-text);
+.gpa-options input, .gpa-options button {
+    margin-bottom: 10px;
 }
 
-.info-card p, .info-card li {
-    line-height: 1.7;
-    color: var(--dark-text);
+.hidden {
+    display: none;
 }
 
-.info-card ul {
-    list-style-position: inside;
-    padding-left: 10px;
+.result-display {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: var(--primary-background); /* Changed result background via remap */
+    border-radius: 8px;
+    color: var(--accent-color); /* Accent color for result text */
+    text-align: center;
+    font-weight: bold;
+    min-height: 20px;
 }
 
-/* Notifications */
+/* Notification Style */
 .notification {
     padding: 12px;
     margin-bottom: 15px;
@@ -255,21 +241,162 @@ button:hover {
 }
 
 .notification.success {
-    background-color: var(--accent-color);
+    background-color: var(--accent-color); /* Accent color for success */
     color: #fff;
 }
 
 .notification.error {
-    background-color: #e57373;
+    background-color: var(--error-color); /* Error color via remap */
     color: #fff;
+}
+
+/* --- Section Heading --- */
+.section-heading {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--dark-text); /* Changed to new dark text */
+    margin-bottom: 40px;
+}
+
+/* --- How It Works Section --- */
+.how-it-works-section {
+    width: 100%;
+    padding: 50px 30px;
+    background-color: var(--primary-background); /* Section background changed via remap */
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    color: var(--dark-text); /* Ensure step text is dark */
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    line-height: 60px; /* Aligns number vertically */
+    border-radius: 50%;
+    background-color: var(--accent-color); /* Accent color for numbers */
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto 20px auto;
+}
+
+.step h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--dark-text); /* Changed to new dark text */
+}
+
+.step p {
+    color: var(--dark-text); /* Changed to new dark text for better contrast */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- Features (Why Choose Us) Section --- */
+.features-section {
+    width: 100%;
+    padding: 50px 30px;
+    background-color: var(--card-section-background); /* Section background changed via remap */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: var(--primary-background); /* Changed card background via remap */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color); /* Border color changed via remap */
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: var(--dark-text); /* Ensure card text is dark */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--accent-color); /* Icon color */
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--dark-text); /* Changed to new dark text */
+    border-bottom: none;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--dark-text); /* Changed to new dark text for better contrast */
+    line-height: 1.6;
+}
+
+/* Info Section */
+.info-container1, .info-container2 { /* Combined styles for both info containers */
+    width: 100%;
+    max-width: 800px;
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: var(--card-section-background); /* Changed background via remap */
+    border-radius: 16px;
+    border: 1px solid var(--border-color); /* Border color changed via remap */
+    color: var(--dark-text); /* Ensure text is dark */
+}
+
+.info-card {
+    margin-bottom: 25px;
+}
+
+.info-card h1, .info-card h2, .info-card h3 { /* Added H1/H2 for consistency */
+    border-bottom: 2px solid var(--border-color); /* Border color changed via remap */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--dark-text); /* Changed to new dark text */
+}
+
+.info-card h4 {
+    color: var(--dark-text); /* Changed to new dark text */
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.info-card p, .info-card li {
+    line-height: 1.7;
+    color: var(--dark-text); /* Changed to new dark text for better contrast */
+}
+
+.info-card ul {
+    list-style-position: inside;
+    padding-left: 10px;
 }
 
 /* Footer */
 .main-footer {
-    background-color: var(--primary-color);
-    color: var(--dark-text);
+    background-color: var(--card-section-background); /* Changed footer background to light beige (primary color) */
+    color: var(--dark-text); /* Default text color in footer (black) */
     padding-top: 40px;
-    width: 100%;
+    width: 100%; /* Make sure footer spans full width */
 }
 
 .footer-container {
@@ -277,9 +404,9 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid var(--secondary-color);
-    max-width: 1200px;
-    margin: 0 auto;
+    border-bottom: 1px solid var(--secondary-color); /* Footer separator via secondary color */
+    max-width: 1200px; /* Max width for content alignment */
+    margin: 0 auto; /* Center the footer content */
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -287,50 +414,138 @@ button:hover {
 .footer-column h4 {
     font-size: 1.25rem;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--accent-highlight); /* Footer column titles via remap (burnt orange) */
 }
 
-.footer-column p,
-.footer-column ul li a {
+.footer-column p {
     font-size: 0.95rem;
-    color: var(--dark-text);
+    margin-bottom: 10px;
+    color: var(--dark-text); /* Footer paragraph text (black) */
+}
+
+.footer-logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-highlight); /* Footer logo color via remap (burnt orange) */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo .logo-icon {
+    height: 35px; /* Adjust if you have a logo image */
+    margin-right: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: var(--dark-text); /* Footer link color (black) */
     text-decoration: none;
+    font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: var(--accent-color);
+    color: var(--primary-button); /* Footer link hover color (accent-color) */
+}
+
+.contact-info a {
+    color: var(--dark-text); /* Contact info link color (black) */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--primary-button);
+}
+
+.contact-info a i {
+    color: var(--dark-text); /* Contact info icon color (black) */
+}
+
+.language-selector select {
+    background-color: var(--primary-background); /* Language selector background (light-bg) */
+    color: var(--dark-text); /* Language selector text color (black) */
+    border: 1px solid var(--border-color); /* Language selector border (secondary-color) */
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
 .footer-bottom {
-    background-color: var(--accent-color);
+    background-color: var(--footer-bottom-bg); /* Footer bottom background (accent-color) */
     padding: 20px;
     text-align: center;
-    color: #fff;
+    color: #fff; /* Footer bottom text color (white) for accent background */
     font-size: 0.85rem;
     width: 100%;
 }
 
-/* Responsive */
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px; /* Match footer-container max-width */
+    margin: 0 auto; /* Center content */
+    padding: 0 20px; /* Padding for small screens */
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: #fff; /* Social icons color (white on accent-highlight bg) */
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color); /* Social icons hover color (primary-color) */
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .main-header nav {
         flex-direction: column;
         gap: 15px;
     }
-
     .nav-links {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
-
     .footer-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on smaller screens */
         text-align: center;
     }
-
+    .footer-column {
+        margin-bottom: 20px;
+    }
+    .footer-column ul {
+        padding-left: 0;
+    }
     .footer-bottom-content {
         flex-direction: column;
         gap: 15px;
+    }
+    .social-icons {
+        margin-top: 10px;
     }
 }
